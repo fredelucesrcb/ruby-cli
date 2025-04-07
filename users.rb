@@ -11,7 +11,11 @@ class UsersApp < Thor
     end
 
     desc 'findSubstr substr', 'Finds Users with the substr in name'  
-    def findSubstr(name, case_sensitive=false)
+    def findSubstr(name, case_sensitive='false')
+
+        case_sensitive = is_boolean(case_sensitive)
+
+        raise TypeError, "Second arg must be a boolean" if ![true, false].include? case_sensitive
 
         subs = !case_sensitive ? name.downcase : name
         users = [] 
@@ -47,6 +51,16 @@ class UsersApp < Thor
 
     def fetchData
         JSON.parse(Net::HTTP.get(URI.parse('https://appassets02.shiftcare.com/manual/clients.json')))
+    end
+
+    def is_boolean(str)
+        if str.to_s == 'true'
+            true
+        elsif str.to_s == 'false'
+            false
+        else
+            nil
+        end
     end
 
 end
