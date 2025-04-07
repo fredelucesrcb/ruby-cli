@@ -17,10 +17,15 @@ Simple Ruby Application that can only be run from the CLI.
 ## Setup
 1. Open a terminal
 2. Clone this repository
+   
 `git clone https://github.com/fredelucesrcb/ruby-cli.git`
-3. Go into directory
+
+4. Go into directory
+   
 `cd ruby-cli`
+
 3. Install gems
+
 `bundle`
 
 ## Usage
@@ -43,6 +48,7 @@ To run the command with the optional argument `case_sensitive`:
 ### Check if there are duplicates of email withtin the data set.
 
 #### Running the command
+
 `ruby users.rb duplicates`
 
 ### Running Tests
